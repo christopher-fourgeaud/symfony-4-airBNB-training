@@ -9,18 +9,17 @@ class ApplicationType extends AbstractType
     /**
      * Permet d'avoir la configuration de base d'un champ !
      *
-     * @param $label
-     * @param $placeholder
-     * @param bool $required
+     * @param string $label
+     * @param string $placeholder
+     * @param array $options
      * @return array
      */
-    protected function getConfiguration($label, $placeholder, $required = TRUE){
-        return [
+    protected function getConfiguration($label, $placeholder, $options = []) {
+        return array_merge_recursive([
             'label' => $label,
             'attr' => [
                 'placeholder' => $placeholder
-            ],
-            'required' => $required
-        ];
+            ]
+        ], $options);
     }
 }
