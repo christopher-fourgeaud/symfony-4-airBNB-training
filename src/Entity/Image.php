@@ -18,7 +18,7 @@ class Image
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Url()
      */
     private $url;
@@ -40,12 +40,15 @@ class Image
         return $this->id;
     }
 
+    /**
+     * @return mixed
+     */
     public function getUrl(): ?string
     {
-        return $this->url;
+            return $this->url;
     }
 
-    public function setUrl(string $url): self
+    public function setUrl(?string $url): self
     {
         $this->url = $url;
 
